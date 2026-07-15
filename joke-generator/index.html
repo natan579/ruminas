@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Joke Generator</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>😂 Joke Generator</h1>
+            <p>Get a laugh with random jokes!</p>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Joke Display -->
+            <section class="joke-section">
+                <div class="joke-box">
+                    <div id="jokeContainer" class="joke-container">
+                        <p id="jokeText" class="joke-text">Click the button to get a joke!</p>
+                        <p id="jokeSetup" class="joke-setup" style="display: none;"></p>
+                        <p id="jokeDelivery" class="joke-delivery" style="display: none;"></p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Controls -->
+            <section class="controls-section">
+                <button id="getJokeBtn" class="btn btn-primary">🎭 Get a Joke</button>
+                <button id="getRandomCategoryBtn" class="btn btn-secondary">🎲 Random Category</button>
+            </section>
+
+            <!-- Category Selection -->
+            <section class="category-section">
+                <h3>📂 Select Category:</h3>
+                <div class="category-buttons">
+                    <button class="category-btn active" data-category="all">All</button>
+                    <button class="category-btn" data-category="general">General</button>
+                    <button class="category-btn" data-category="programming">Programming</button>
+                    <button class="category-btn" data-category="knock-knock">Knock-Knock</button>
+                </div>
+            </section>
+
+            <!-- Joke Type Selection -->
+            <section class="type-section">
+                <h3>📝 Joke Type:</h3>
+                <div class="type-buttons">
+                    <label class="type-label">
+                        <input type="radio" name="jokeType" value="all" checked>
+                        <span>Both</span>
+                    </label>
+                    <label class="type-label">
+                        <input type="radio" name="jokeType" value="single">
+                        <span>Single</span>
+                    </label>
+                    <label class="type-label">
+                        <input type="radio" name="jokeType" value="twopart">
+                        <span>Two Part</span>
+                    </label>
+                </div>
+            </section>
+
+            <!-- Stats Section -->
+            <section class="stats-section">
+                <div class="stat">
+                    <span class="stat-label">Jokes Loaded</span>
+                    <span class="stat-value" id="jokeCount">0</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">Current Category</span>
+                    <span class="stat-value" id="currentCategory">All</span>
+                </div>
+            </section>
+
+            <!-- Action Buttons -->
+            <section class="action-buttons">
+                <button id="copyJokeBtn" class="btn btn-outline">📋 Copy Joke</button>
+                <button id="shareJokeBtn" class="btn btn-outline">📤 Share</button>
+                <button id="favoritesBtn" class="btn btn-outline">❤️ View Favorites</button>
+            </section>
+
+            <!-- Loading State -->
+            <div id="loadingSpinner" class="loading-spinner" style="display: none;">
+                <div class="spinner"></div>
+                <p>Loading joke...</p>
+            </div>
+
+            <!-- Error Message -->
+            <div id="errorMessage" class="error-message" style="display: none;"></div>
+        </main>
+    </div>
+
+    <!-- Favorites Modal -->
+    <div id="favoritesModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>❤️ My Favorite Jokes</h2>
+                <button class="close-btn" id="closeModalBtn">&times;</button>
+            </div>
+            <div id="favoritesList" class="favorites-list"></div>
+            <div id="noFavoritesMsg" class="no-favorites">No favorite jokes yet!</div>
+            <div class="modal-buttons">
+                <button id="clearFavoritesBtn" class="btn btn-danger">Clear All</button>
+                <button id="closeModalBtn2" class="btn btn-secondary">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast"></div>
+
+    <script src="js/api.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
